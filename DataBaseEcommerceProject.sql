@@ -90,7 +90,7 @@ CREATE TABLE product_order(
 	idPOproduct INT,
     idPOorder INT,
     POQuantity INT DEFAULT 1,
-    POStatus enum ('Disponivel', 'Sem estoque') DEFAULT 'Disponível',
+    POStatus enum ('Disponivel', 'Sem estoque') DEFAULT 'Disponivel',
     PRIMARY KEY (idPOproduct, idPOorder),
     CONSTRAINT fk_product_order_seller FOREIGN KEY (idPOproduct) REFERENCES product(idProduct),
     CONSTRAINT fk_product_order_orders FOREIGN KEY (idPOorder) REFERENCES orders(idOrder)
@@ -115,3 +115,6 @@ CREATE TABLE product_supplier(
     CONSTRAINT fk_product_supplier_supplier FOREIGN KEY (idPSSupplier) REFERENCES supplier(idSupplier),
     CONSTRAINT fk_product_supplier_product FOREIGN KEY (idPSProduct) REFERENCES product(idProduct)
 );
+
+ALTER TABLE clients AUTO_INCREMENT = 1;
+
